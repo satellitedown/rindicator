@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rindicator"
+version = "0.1.0"
+description = "GPU load indicator rendered on Corsair Vengeance RGB DDR5 RAM via OpenRGB"
+requires-python = ">=3.11"
+dependencies = [
+    "openrgb-python==0.3.7",
+    "nvidia-ml-py==13.610.43",
+]
+
+[project.scripts]
+rindicator = "rindicator:main"
+
+[tool.setuptools]
+py-modules = ["rindicator"]

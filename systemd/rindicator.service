@@ -1,0 +1,17 @@
+[Unit]
+Description=GPU load indicator on Corsair RAM
+Wants=rindicator-openrgb.service
+After=rindicator-openrgb.service
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/Projects/rindicator
+ExecStart=%h/Projects/rindicator/.venv/bin/rindicator run
+Restart=on-failure
+RestartSec=5
+RestartPreventExitStatus=2
+TimeoutStopSec=30
+
+[Install]
+WantedBy=graphical-session.target

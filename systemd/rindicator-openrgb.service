@@ -1,0 +1,14 @@
+[Unit]
+Description=RAM indicator OpenRGB backend
+After=wayland-session-waitenv.service
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/openrgb --server --server-host 127.0.0.1 --server-port 6742 --noautoconnect --config %h/.config/rindicator/openrgb --loglevel info --verbose
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=30
+
+[Install]
+WantedBy=graphical-session.target
